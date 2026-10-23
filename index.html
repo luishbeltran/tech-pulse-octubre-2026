@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Pulse · Octubre 2026 | Claude, OpenAI, Grok y .NET</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #12121a;
+    --accent: #ff6b35;
+    --accent2: #00d4ff;
+    --text: #e8e8ef;
+    --muted: #8a8aa0;
+    --claude: #d97706;
+    --openai: #10a37f;
+    --grok: #ffffff;
+    --dotnet: #512bd4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .hero {
+    height: 90vh;
+    background: linear-gradient(180deg, rgba(10,10,15,0.4) 0%, var(--bg) 100%), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+  .hero .subtitle {
+    font-size: 1.4rem;
+    color: var(--muted);
+    max-width: 700px;
+    margin-bottom: 2rem;
+  }
+  .badge {
+    background: var(--accent);
+    color: #000;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
+  section { margin-bottom: 6rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .section-header h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  .grid.reverse { direction: rtl; }
+  .grid.reverse > * { direction: ltr; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #222;
+  }
+  .card img { width: 100%; height: 320px; object-fit: cover; display: block; }
+  .card-content { padding: 1.8rem; }
+  .card h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .highlight {
+    background: linear-gradient(135deg, var(--accent), #ff8c42);
+    color: #000;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 700;
+  }
+  ul { margin: 1rem 0 1rem 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  .quote {
+    border-left: 4px solid var(--accent2);
+    padding-left: 1.2rem;
+    font-style: italic;
+    color: var(--muted);
+    margin: 1.5rem 0;
+  }
+  footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+    border-top: 1px solid #222;
+  }
+  @media (max-width: 900px) {
+    .grid, .grid.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .hero { height: 70vh; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Edición Octubre 2026</div>
+  <h1>TECH PULSE</h1>
+  <p class="subtitle">El recuento magazine de las últimas novedades en Claude, OpenAI (ChatGPT + Codex), Grok Bot y .NET/Blazor. Agentes, modelos y herramientas que están redefiniendo el desarrollo.</p>
+</header>
+
+<div class="container">
+
+  <!-- CLAUDE -->
+  <section>
+    <div class="section-header">
+      <h2 style="color: var(--claude);">Claude · Anthropic</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <img src="https://static01.nyt.com/images/2026/10/21/business/21biz-anthropic-agent-handout-02/21biz-anthropic-agent-handout-02-facebookJumbo.png" alt="Claude Duet">
+        <div class="card-content">
+          <h3>Familia Claude 5.5</h3>
+          <p><span class="highlight">Opus 5.5</span> lidera en coding agéntico y conocimiento. 40% más barato que Opus 5, +30% más rápido. Precios: $4/$20 por millón de tokens.</p>
+          <ul>
+            <li>Sonnet 5.5: más rápido y hasta 30% más económico</li>
+            <li>Haiku 5.5: el modelo pequeño más capaz y veloz</li>
+            <li>Mejor alineación y resistencia a prompt injection</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <img src="https://www.reuters.com/resizer/v2/TN6P7WO77ZJM3NCJ3A7N4CY4RY.jpg?auth=9baac1de79af670bcd4d94017fbace80001398caea2771aa1dd00444ec2c24ef&height=628&width=1200&quality=80&smart=true" alt="Claude">
+          <div class="card-content">
+            <h3>Claude Duet · El agente proactivo</h3>
+            <p>Preview de investigación (21 oct 2026) para Pro/Max en EE.UU. Agente que te busca a ti.</p>
+            <ul>
+              <li>Brief matutino automático</li>
+              <li>Trabaja en su propia VM en la nube</li>
+              <li>Pide aprobación antes de enviar, pagar o borrar</li>
+              <li>Competidor de OpenAI Dots y Meta Muse, enfocado en trabajo</li>
+            </ul>
+            <div class="quote">“Claude espera. Duet viene a ti.”</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPENAI -->
+  <section>
+    <div class="section-header">
+      <h2 style="color: var(--openai);">OpenAI · ChatGPT + Codex</h2>
+    </div>
+    <div class="grid reverse">
+      <div>
+        <div class="card">
+          <img src="https://openai.com/index/introducing-codex/" alt="Codex">
+          <div class="card-content">
+            <h3>Codex para (casi) todo</h3>
+            <p>Actualización mayor: computer use, generación de imágenes (gpt-image-1.5), memoria, +90 plugins, navegador integrado, SSH a remote devboxes y automatizaciones.</p>
+            <ul>
+              <li>GPT-6.1 Sol como modelo fuerte por defecto</li>
+              <li>Ultrafast mode en planes altos</li>
+              <li>GPT-5.5 retirado de Codex (ChatGPT sign-in)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://learn.chatgpt.com/og/docs/changelog.png" alt="Codex changelog">
+        <div class="card-content">
+          <h3>Más allá del código</h3>
+          <p>Codex ya no solo escribe código: revisa PRs, depura, coordina y mantiene trabajo en movimiento. Dots (agente personal), slides colaborativos y GPT-Live-1.1 en voz.</p>
+          <div class="quote">Más de 3 millones de desarrolladores lo usan cada semana.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROK -->
+  <section>
+    <div class="section-header">
+      <h2>Grok & Grok Bot</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <img src="https://www.designrush.com/best-designs/logo/grok-ai" alt="Grok">
+        <div class="card-content">
+          <h3>El ritmo más rápido</h3>
+          <p>v0.75.2 (22 oct): Pages (reportes y dashboards vivos), creación de videos, pagos con Shop Pay y X Money, cards nuevas y voz con memoria.</p>
+          <ul>
+            <li>Speedups grandes en computer use</li>
+            <li>Acceso profundo a X (DMs, búsquedas)</li>
+            <li>Puede enrutar a Claude Opus 5.5 cuando lo necesita</li>
+            <li>Disponible en grok.com para SuperGrok Plus/Heavy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://themelo.in/podcasts/grok-bot-release-notes/art.jpg" alt="Grok Bot">
+        <div class="card-content">
+          <h3>De juguete a infraestructura</h3>
+          <p>Usuarios reportan flujos de trabajo reales completados en minutos. Changelog oficial actualizado constantemente.</p>
+          <div class="quote">“Puedes construir una compañía entera hecha de Grok Bots.” — Elon Musk</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- .NET -->
+  <section>
+    <div class="section-header">
+      <h2 style="color: var(--dotnet);">.NET & Blazor</h2>
+    </div>
+    <div class="grid reverse">
+      <div class="card">
+        <img src="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/10/dotnet-11-rc-2.webp" alt=".NET 11">
+        <div class="card-content">
+          <h3>.NET 11 RC2 · Go-Live</h3>
+          <p>Lanzado el 13 de octubre con licencia go-live. GA prevista para noviembre 2026 (alrededor del 10 de nov).</p>
+          <ul>
+            <li>C# 15 como lenguaje por defecto</li>
+            <li>Mejoras en Blazor: EnvironmentBoundary, BasePath, MathML, Virtualize mejorado</li>
+            <li>Persistencia de sesión, IHostedService en WASM, pausa de circuitos</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <img src="https://res.infoq.com/news/2026/10/dotnet-11-rc-2/en/card_header_image/generatedCard-1792310782843.jpg" alt=".NET Blazor">
+          <div class="card-content">
+            <h3>Ecosistema en ebullición</h3>
+            <p>Infragistics colabora directamente con Microsoft y open-sourcea controles + wrapper ApexCharts. Radzen v12.1 trae AI Chat con tool calling.</p>
+            <div class="quote">El ecosistema de UI ya integra IA nativa de forma madura.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align: center; padding: 3rem 0;">
+    <h2 style="margin-bottom: 1rem;">El patrón de octubre 2026</h2>
+    <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--muted);">
+      Madurez de los agentes proactivos (Claude Duet, OpenAI Dots, Grok Bot) + eficiencia de costos en los modelos de punta (Opus 5.5 es el ejemplo más limpio). Para desarrollo web con .NET/Blazor, el horizonte inmediato es .NET 11.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <p>Tech Pulse · Recuento especial Octubre 2026 · Generado para Luis Hernando Beltrán</p>
+  <p style="margin-top: 0.5rem; font-size: 0.85rem;">Información basada en anuncios oficiales y cobertura hasta el 23 de octubre de 2026.</p>
+</footer>
+
+</body>
+</html>
